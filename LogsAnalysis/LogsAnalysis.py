@@ -22,3 +22,22 @@ def mostPopularArticles():
     cursor.close()
     db.close()
 
+def mostPopularAuthors():
+    print("\nThe most popular authors of all time:\n")
+    db = psycopg2.connect(database=DBNAME)
+    cursor = db.cursor()
+    cursor.execute(
+        "SELECT authors.name, count(log.id) AS Views "
+        "FROM log, articles,authors "
+        "WHERE log.path LIKE '%article%' "
+        "AND (substring(log.path FROM 10) = articles.slug) "
+        "AND (articles.author= authors.id) "
+        "GROUP BY authors.name "
+        "ORDER BY Views DESC")
+    results = cursor.fetchall()
+    for row in results:
+        print(row[0] + " --- " + str(row[1]) + " Views")
+
+    cursor.close()
+    db.close()
+
