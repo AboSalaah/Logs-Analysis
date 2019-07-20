@@ -55,6 +55,9 @@ Project is created with:
 * Python 3.7.4
 * PostgreSQL
 
+### Coding Syle
+* Follows PEP 8 — the Style Guide for Python Code
+
 ### Usage
 ```python
 import LogsAnalysis
