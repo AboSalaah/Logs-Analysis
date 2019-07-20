@@ -52,7 +52,7 @@ $ python LogsAnalysis.py
 ```
 ### Technologies
 Project is created with: 
-* Python 3.7.4
+* Python 2.7.12
 * PostgreSQL
 
 ### Coding Syle
