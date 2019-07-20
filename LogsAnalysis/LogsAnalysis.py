@@ -5,7 +5,8 @@ DBNAME = "news"
 
 # querying the database for the most popular three articles of all time
 def mostPopularArticles():
-    print("\nThe most popular three articles of all time:\n")
+    print("-----------------------------------------------------------------------")
+    print("The most popular three articles of all time:\n")
     db = psycopg2.connect(database=DBNAME)
     cursor = db.cursor()
     cursor.execute(
@@ -18,13 +19,14 @@ def mostPopularArticles():
     results = cursor.fetchall()
     for row in results:
         print(row[0] + " --- " + str(row[1]) + " Views")
-
+    print("-----------------------------------------------------------------------\n")
     cursor.close()
     db.close()
 
 
 def mostPopularAuthors():
-    print("\nThe most popular authors of all time:\n")
+    print("-----------------------------------------------------------------------")
+    print("The most popular authors of all time:\n")
     db = psycopg2.connect(database=DBNAME)
     cursor = db.cursor()
     cursor.execute(
@@ -38,13 +40,14 @@ def mostPopularAuthors():
     results = cursor.fetchall()
     for row in results:
         print(row[0] + " --- " + str(row[1]) + " Views")
-
+    print("-----------------------------------------------------------------------\n")
     cursor.close()
     db.close()
 
 
 def highErrorDays():
-    print("\nexi:\n")
+    print("-----------------------------------------------------------------------")
+    print("The days that have more than 1% of requests lead to errors:\n")
     db = psycopg2.connect(database=DBNAME)
     cursor = db.cursor()
     cursor.execute(
@@ -58,13 +61,11 @@ def highErrorDays():
         dt = row[0]
         percentage = row[1]
         print(dt.strftime("%b %d %Y")+" --- "+str(percentage)+"%")
-
+    print("-----------------------------------------------------------------------\n")
     cursor.close()
     db.close()
 
 
 mostPopularArticles()
-print("-----------------------------------------------------------------------")
 mostPopularAuthors()
-print("-----------------------------------------------------------------------")
 highErrorDays()
