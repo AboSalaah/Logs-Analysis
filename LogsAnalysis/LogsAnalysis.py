@@ -41,3 +41,22 @@ def mostPopularAuthors():
     cursor.close()
     db.close()
 
+def highErrorDays():
+    print("\nexi:\n")
+    db = psycopg2.connect(database=DBNAME)
+    cursor = db.cursor()
+    cursor.execute(
+        "SELECT DATE(log.time), "
+        "trunc(AVG(CASE WHEN log.status LIKE '4%' OR log.status LIKE '5%' THEN 1 ELSE 0 END)::DECIMAL*100,2) "
+        "FROM log "
+        "GROUP BY DATE(log.time) "
+        "HAVING AVG(CASE WHEN log.status LIKE '4%' or log.status LIKE '5%' THEN 1 ELSE 0 END)>0.01 ")
+    results = cursor.fetchall()
+    for row in results:
+        dt = row[0]
+        percentage = row[1]
+        print(dt.strftime("%b %d %Y")+" --- "+str(percentage)+"%")
+
+    cursor.close()
+    db.close()
+
