@@ -22,6 +22,7 @@ def mostPopularArticles():
     cursor.close()
     db.close()
 
+
 def mostPopularAuthors():
     print("\nThe most popular authors of all time:\n")
     db = psycopg2.connect(database=DBNAME)
@@ -40,6 +41,7 @@ def mostPopularAuthors():
 
     cursor.close()
     db.close()
+
 
 def highErrorDays():
     print("\nexi:\n")
@@ -60,3 +62,9 @@ def highErrorDays():
     cursor.close()
     db.close()
 
+
+mostPopularArticles()
+print("-----------------------------------------------------------------------")
+mostPopularAuthors()
+print("-----------------------------------------------------------------------")
+highErrorDays()
