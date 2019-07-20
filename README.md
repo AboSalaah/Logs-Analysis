@@ -1,20 +1,20 @@
 # Logs Analysis
 Logs Analysis is a reporting tool that prints out reports (in plain text) based on a newspaper articles database, as well as the web server log for the newspaper site.
-# Getting Started
-## Prerequisites
+## Getting Started
 
-## Installing
+
+### Installing
 ```
-$ git clone https://github.com/AboSalaah/LogsAnalysis.git
-$ cd ../logs_analysis_project
+$ git clone https://github.com/AboSalaah/Logs-Analysis.git
+$ cd ../LogsAnalysis
 $ python LogsAnalysis.py
 ```
-## Technologies
+### Technologies
 Project is created with: 
 * Python 3.7.4
 * PostgreSQL
 
-## Usage
+### Usage
 ```python
 import LogsAnalysis
 
