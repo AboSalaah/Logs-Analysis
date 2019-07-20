@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import psycopg2
 import datetime
 DBNAME = "news"
